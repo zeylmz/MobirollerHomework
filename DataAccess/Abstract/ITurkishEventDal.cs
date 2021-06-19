@@ -6,6 +6,5 @@ namespace DataAccess.Abstract
 {
     public interface ITurkishEventDal : IEntityRepository<TurkishEvent>
     {
-        void AddRange(List<TurkishEvent> turkishEvents);
     }
 }

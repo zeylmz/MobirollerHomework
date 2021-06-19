@@ -18,8 +18,8 @@ namespace Business.Abstract
         IResult Add(TurkishEvent turkishEvent);
         IResult Delete(TurkishEvent turkishEvent);
         IResult Update(TurkishEvent turkishEvent);
-        IResult AddRange();
-        //IResult DeletedRange();
-        //IResult UpdatedRange();
+        IResult AddingDataInJson();
+        IResult RemovingDataInJson();
+        IResult UpdatingDataJson();
     }
 }

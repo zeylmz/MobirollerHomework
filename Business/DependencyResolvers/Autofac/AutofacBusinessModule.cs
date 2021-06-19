@@ -17,6 +17,9 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<TurkishEventManager>().As<ITurkishEventService>();
             builder.RegisterType<EfTurkishEventDal>().As<ITurkishEventDal>();
+
+            builder.RegisterType<ItalianEventManager>().As<IItalianEventService>();
+            builder.RegisterType<EfItalianEventDal>().As<IItalianEventDal>();
         }
     }
 }

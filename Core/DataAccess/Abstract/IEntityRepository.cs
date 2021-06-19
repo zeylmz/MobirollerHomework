@@ -12,5 +12,8 @@ namespace Core.DataAccess.Abstract
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void AddRange(List<T> entities);
+        void UpdateRange(List<T> entities);
+        void RemoveRange(List<T> entities);
     }
 }

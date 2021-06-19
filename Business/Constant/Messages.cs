@@ -15,17 +15,19 @@ namespace Business.Constant
         public static string ListingFromSourceFailed = "Ana kaynak linkten yapılan listeleme işlemi başarısız.";
 
         //Add - Delete - Update
-        public static string AddedDataSuccessful = "Veri ekleme işlemi başarılı";
-        public static string AddedDataFailed = "Veri ekleme işlemi başarısız";
-        public static string DeletedDataSuccessful = "Veri silme işlemi başarılı";
-        public static string DeletedDataFailed = "Veri silme işlemi başarısız";
-        public static string UpdatedDataSuccessful = "Veri güncelleme işlemi başarılı";
-        public static string UpdatedDataFailed = "Veri güncelleme işlemi başarısız";
+        public static string AddedDataFromDatabaseSuccessfull = "Veri ekleme işlemi başarılı";
+        public static string AddedDataFromDatabaseFailed = "Veri ekleme işlemi başarısız";
+        public static string DeletedDataFromDatabaseSuccessfull = "Veri silme işlemi başarılı";
+        public static string DeletedDataFromDatabaseFailed = "Veri silme işlemi başarısız";
+        public static string UpdatedDataFromDatabaseSuccessful = "Veri güncelleme işlemi başarılı";
+        public static string UpdatedDataFromDatabaseFailed = "Veri güncelleme işlemi başarısız";
 
         //AddRange - DeletedRange - UpdateRange
-        public static string AddedDataInTurkishSuccessful = "Türkçe veriler eklendi. İşlem Başarılı.";
-        public static string AddedDataInTurkishFailed = "Türkçe veriler eklenemedi. İşlem Başarısız.";
-        public static string AddedDataInItalianSuccessful = "İtalyanca veriler eklendi. İşlem Başarılı.";
-        public static string AddedDataInItalianFailed = "İtalyanca veriler eklenemedi. İşlem Başarısız.";
+        public static string AddedDataFromSourceSuccessfull = "Uzak sunucudaki veriyi veritabanına ekleme işlemi başarılı oldu";
+        public static string AddedDataFromSourceFailed = "Uzak sunucudaki veriyi veritabanına ekleme işlemi başarısız oldu. ";
+        public static string DeletedDataFromSourceSuccessful = "Veritabanında bulunan verilerin silinme işlemi başarılı oldu.";
+        public static string DeletedDataFromSourceFailed = "Veritabanında bulunan verilerin silinme işlemi başarısız oldu.";
+        public static string UpdatedDataFromSourceSuccessful = "Uzak sunucudaki verilerle veritabanındaki verilerin eşleştirme işlemi başarılı oldu.";
+        public static string UpdatedDataFromSourceFailed = "Uzak sunucudaki verilerle veritabanındaki verilerin eşleştirme işlemi başarısız oldu.";
     }
 }

@@ -22,6 +22,15 @@ namespace Core.DataAccess.Concrete.EntityFramework
             }
         }
 
+        public void AddRange(List<TEntity> entities)
+        {
+            using (var context = new TContext())
+            {
+                context.AddRange(entities);
+                context.SaveChanges();
+            }
+        }
+
         public void Delete(TEntity entity)
         {
             using (var context = new TContext())
@@ -48,12 +57,30 @@ namespace Core.DataAccess.Concrete.EntityFramework
             }
         }
 
+        public void RemoveRange(List<TEntity> entities)
+        {
+            using (var context = new TContext())
+            {
+                context.RemoveRange(entities);
+                context.SaveChanges();
+            }
+        }
+
         public void Update(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var updatedEntity = context.Entry(entity);
                 updatedEntity.State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
+
+        public void UpdateRange(List<TEntity> entities)
+        {
+            using (var context = new TContext())
+            {
+                context.UpdateRange(entities);
                 context.SaveChanges();
             }
         }
