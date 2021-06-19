@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework.Contexts
@@ -11,5 +12,8 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         }
         public DbSet<TurkishEvent> TurkishEvents { get; set; }
         public DbSet<ItalianEvent> ItalianEvents { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }

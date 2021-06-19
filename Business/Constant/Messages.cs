@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,5 +30,12 @@ namespace Business.Constant
         public static string DeletedDataFromSourceFailed = "Veritabanında bulunan verilerin silinme işlemi başarısız oldu.";
         public static string UpdatedDataFromSourceSuccessful = "Uzak sunucudaki verilerle veritabanındaki verilerin eşleştirme işlemi başarılı oldu.";
         public static string UpdatedDataFromSourceFailed = "Uzak sunucudaki verilerle veritabanındaki verilerin eşleştirme işlemi başarısız oldu.";
+
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string PasswordError = "Şifre Yanlış";
+        internal static string SuccessfullLogin = "Kullanıcı girişi başarılı";
+        internal static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
+        internal static string UserRegistered = "Kullanıcı başarıyla kayıt edildi.";
+        internal static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
     }
 }
