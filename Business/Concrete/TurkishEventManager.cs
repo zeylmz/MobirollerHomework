@@ -79,15 +79,5 @@ namespace Business.Concrete
             }
             return new SuccessResult(Messages.AddedDataInTurkishSuccessful);
         }
-
-        //private static IDataResult<List<TurkishEvent>> DownloadJson(string url)
-        //{
-        //    using (var webClient = new WebClient())
-        //    {
-        //        string jsonData = webClient.DownloadString(url);
-        //        List<TurkishEvent> turkishEvents = JsonConvert.DeserializeObject<List<TurkishEvent>>(jsonData);
-        //        return new SuccessDataResult<List<TurkishEvent>>(turkishEvents);
-        //    }            
-        //}
     }
 }
