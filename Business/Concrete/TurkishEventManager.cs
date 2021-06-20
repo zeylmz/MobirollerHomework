@@ -11,7 +11,7 @@ namespace Business.Concrete
 {
     public class TurkishEventManager : ITurkishEventService
     {
-        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c86e0795-cfbb-42b9-8164-739f72ebf585/3455dde5.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210619%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210619T110206Z&X-Amz-Expires=86400&X-Amz-Signature=fec3998e91366a30aca3ffa325bbc16f2487d8a6ae58a5e898a1d6dab92c1c9c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"3455dde5.json\"";
+        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c86e0795-cfbb-42b9-8164-739f72ebf585/3455dde5.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210620%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210620T222552Z&X-Amz-Expires=86400&X-Amz-Signature=e106795240ac7a61839e88f4f38a1b7e0cdd4206791b7645ea672b4e7d0d42c7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"3455dde5.json\"";
         ITurkishEventDal _turkishEventDal;
 
         public TurkishEventManager(ITurkishEventDal turkishEventDal)

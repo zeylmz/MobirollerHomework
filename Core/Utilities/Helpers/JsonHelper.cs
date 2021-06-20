@@ -20,5 +20,15 @@ namespace Core.Utilities.Helpers
                 return turkishEvents;
             }
         }
+
+        public static TEntity LoadJsonSoloData(string url)
+        {
+            using (var webClient = new WebClient())
+            {
+                string jsonData = webClient.DownloadString(url);
+                TEntity turkishEvents = JsonConvert.DeserializeObject<TEntity>(jsonData);
+                return turkishEvents;
+            }
+        }
     }
 }

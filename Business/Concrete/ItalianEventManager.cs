@@ -15,7 +15,7 @@ namespace Business.Concrete
 {
     public class ItalianEventManager : IItalianEventService
     {
-        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8febcaa6-c2f8-4fab-b05b-141bafe4d344/1d6a2360.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210619%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210619T124148Z&X-Amz-Expires=86400&X-Amz-Signature=7c7b9713c2c98f0c4bc8d320e91347ecfeefe11beb073eaa128aaf65305f20e5&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"1d6a2360.json\"";
+        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/8febcaa6-c2f8-4fab-b05b-141bafe4d344/1d6a2360.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210620%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210620T222517Z&X-Amz-Expires=86400&X-Amz-Signature=801697f99b9a3d9260ecf40cb02eeb805cef8f450ab3381a066b99c0cc4d60a7&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"1d6a2360.json\"";
         IItalianEventDal _italianEventDal;
 
         public ItalianEventManager(IItalianEventDal italianEventDal)

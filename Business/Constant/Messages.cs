@@ -33,9 +33,12 @@ namespace Business.Constant
 
         public static string UserNotFound = "Kullanıcı Bulunamadı";
         public static string PasswordError = "Şifre Yanlış";
-        internal static string SuccessfullLogin = "Kullanıcı girişi başarılı";
-        internal static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
-        internal static string UserRegistered = "Kullanıcı başarıyla kayıt edildi.";
-        internal static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
+        
+        public static string SuccessfullLogin = "Kullanıcı girişi başarılı";
+        public static string UserAlreadyExists = "Bu kullanıcı zaten mevcut";
+        public static string UserRegistered = "Kullanıcı başarıyla kayıt edildi.";
+        public static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
+
+        public static object LocalIpInformation = "LocalIP üzerinden işlem yapmaktasınız. api/turkishevents/readjson veya api/italianevents/readjson uzantılarını kullanarak verileri alabilirsin";
     }
 }
