@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
@@ -23,11 +24,12 @@ namespace Business.Concrete
             _turkishEventDal = turkishEventDal;
         }
 
+        [SecuredOperation("admin,data.add")]
         [ValidationAspect(typeof(TurkishEventValidator))]
         public IResult Add(TurkishEvent turkishEvent)
         {
             IResult result = BusinessRules.Run
-                (      
+                (
                     DataCountExceeded()
                 );
 
@@ -38,8 +40,9 @@ namespace Business.Concrete
 
             _turkishEventDal.Add(turkishEvent);
             return new SuccessResult(Messages.AddedDataFromDatabaseSuccessfull);
-        }        
+        }
 
+        [SecuredOperation("admin,data.add")]
         [ValidationAspect(typeof(TurkishEventValidator))]
         public IResult Update(TurkishEvent turkishEvent)
         {
@@ -75,10 +78,11 @@ namespace Business.Concrete
 
         public IDataResult<List<TurkishEvent>> ReadJson()
         {
-                List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);
-                return new SuccessDataResult<List<TurkishEvent>>(turkishEvent,Messages.ListingFromSourceSuccessful);
+            List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);
+            return new SuccessDataResult<List<TurkishEvent>>(turkishEvent, Messages.ListingFromSourceSuccessful);
         }
 
+        [SecuredOperation("admin")]
         public IResult AddingDataInJson()
         {
             List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);
@@ -86,6 +90,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.AddedDataFromSourceSuccessfull);
         }
 
+        [SecuredOperation("admin")]
         public IResult RemovingDataInJson()
         {
             List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);
@@ -93,6 +98,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.DeletedDataFromSourceSuccessful);
         }
 
+        [SecuredOperation("admin")]
         public IResult UpdatingDataJson()
         {
             List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);

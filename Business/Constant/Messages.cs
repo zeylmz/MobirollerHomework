@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,5 +42,6 @@ namespace Business.Constant
 
         public static object LocalIpInformation = "LocalIP üzerinden işlem yapmaktasınız. api/turkishevents/readjson veya api/italianevents/readjson uzantılarını kullanarak verileri alabilirsin";
         internal static string DataCountExceeded = "Maksimum veri sayısını aştınız.";
+        internal static string AuthorizationDenied = "Yetkisiz İşlem.";
     }
 }

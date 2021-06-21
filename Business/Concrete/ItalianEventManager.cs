@@ -2,6 +2,7 @@
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -28,10 +29,21 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ItalianEventValidator))]
         public IResult Add(ItalianEvent italianEvent)
         {
+            IResult result = BusinessRules.Run
+                (
+                    DataCountExceeded()
+                );
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _italianEventDal.Add(italianEvent);
             return new SuccessResult(Messages.AddedDataFromDatabaseSuccessfull);
         }
 
+       
         [ValidationAspect(typeof(ItalianEventValidator))]
         public IResult Update(ItalianEvent italianEvent)
         {
@@ -91,5 +103,16 @@ namespace Business.Concrete
             _italianEventDal.RemoveRange(italianEvent);
             return new SuccessResult(Messages.UpdatedDataFromSourceSuccessful);
         }
+
+        private IResult DataCountExceeded()
+        {
+            var result = _italianEventDal.GetAll();
+            if (result.Count > 15000)
+            {
+                return new ErrorResult(Messages.DataCountExceeded);
+            }
+            return new SuccessResult();
+        }
+
     }
 }
