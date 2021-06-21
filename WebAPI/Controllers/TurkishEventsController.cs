@@ -123,7 +123,7 @@ namespace WebAPI.Controllers
         [HttpGet("removingdatainjson")]        
         public IActionResult RemovingDataInJson()
         {
-            var result = _turkishEventService.RemovingDataInJson();
+            var result = _turkishEventService.RemovingAllData();
             if (result.Success)
             {
                 return Ok(result);
