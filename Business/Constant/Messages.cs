@@ -40,5 +40,6 @@ namespace Business.Constant
         public static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
 
         public static object LocalIpInformation = "LocalIP üzerinden işlem yapmaktasınız. api/turkishevents/readjson veya api/italianevents/readjson uzantılarını kullanarak verileri alabilirsin";
+        internal static string DataCountExceeded = "Maksimum veri sayısını aştınız.";
     }
 }

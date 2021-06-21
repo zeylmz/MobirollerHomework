@@ -2,11 +2,13 @@
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
@@ -24,9 +26,19 @@ namespace Business.Concrete
         [ValidationAspect(typeof(TurkishEventValidator))]
         public IResult Add(TurkishEvent turkishEvent)
         {
+            IResult result = BusinessRules.Run
+                (      
+                    DataCountExceeded()
+                );
+
+            if (result != null)
+            {
+                return result;
+            }
+
             _turkishEventDal.Add(turkishEvent);
             return new SuccessResult(Messages.AddedDataFromDatabaseSuccessfull);
-        }
+        }        
 
         [ValidationAspect(typeof(TurkishEventValidator))]
         public IResult Update(TurkishEvent turkishEvent)
@@ -86,6 +98,16 @@ namespace Business.Concrete
             List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);
             _turkishEventDal.RemoveRange(turkishEvent);
             return new SuccessResult(Messages.UpdatedDataFromSourceSuccessful);
+        }
+
+        private IResult DataCountExceeded()
+        {
+            var result = _turkishEventDal.GetAll();
+            if (result.Count > 20000)
+            {
+                return new ErrorResult(Messages.DataCountExceeded);
+            }
+            return new SuccessResult();
         }
     }
 }
