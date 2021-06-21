@@ -15,7 +15,7 @@ namespace Business.Abstract
         IResult Delete(ItalianEvent italianEvent);
         IResult Update(ItalianEvent italianEvent);
         IResult AddingDataInJson();
-        IResult RemovingDataInJson();
+        IResult RemovingAllData();
         IResult UpdatingDataJson();
     }
 }

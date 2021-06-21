@@ -19,7 +19,7 @@ namespace Business.Abstract
         IResult Delete(TurkishEvent turkishEvent);
         IResult Update(TurkishEvent turkishEvent);
         IResult AddingDataInJson();
-        IResult RemovingDataInJson();
+        IResult RemovingAllData();
         IResult UpdatingDataJson();
     }
 }

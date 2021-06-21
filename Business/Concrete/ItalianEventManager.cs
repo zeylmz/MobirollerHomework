@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
@@ -26,7 +28,9 @@ namespace Business.Concrete
             _italianEventDal = italianEventDal;
         }
 
+        [SecuredOperation("admin,data.add")]
         [ValidationAspect(typeof(ItalianEventValidator))]
+        [CacheRemoveAspect("ITurkishEventService.Get")]
         public IResult Add(ItalianEvent italianEvent)
         {
             IResult result = BusinessRules.Run
@@ -43,46 +47,56 @@ namespace Business.Concrete
             return new SuccessResult(Messages.AddedDataFromDatabaseSuccessfull);
         }
 
-       
+        [SecuredOperation("admin,data.add")]
         [ValidationAspect(typeof(ItalianEventValidator))]
+        [CacheRemoveAspect("ITurkishEventService.Get")]
         public IResult Update(ItalianEvent italianEvent)
         {
             _italianEventDal.Update(italianEvent);
             return new SuccessResult(Messages.UpdatedDataFromDatabaseSuccessful);
         }
 
+        [SecuredOperation("admin,data.add")]
+        [CacheRemoveAspect("ITurkishEventService.Get")]
         public IResult Delete(ItalianEvent italianEvent)
         {
             _italianEventDal.Delete(italianEvent);
             return new SuccessResult(Messages.DeletedDataFromDatabaseSuccessfull);
         }
 
+        [CacheAspect]
         public IDataResult<List<ItalianEvent>> GetAll()
         {
             return new SuccessDataResult<List<ItalianEvent>>(_italianEventDal.GetAll(), Messages.ListingFromDatabaseSuccessful);
         }
 
+        [CacheAspect]
         public IDataResult<List<ItalianEvent>> GetAllByCategory(string categoryName)
         {
             return new SuccessDataResult<List<ItalianEvent>>(_italianEventDal.GetAll(e => e.dc_Categoria == categoryName), Messages.ListingFromDatabaseSuccessful);
         }
 
+        [CacheAspect]
         public IDataResult<List<ItalianEvent>> GetAllByTime(string time)
         {
             return new SuccessDataResult<List<ItalianEvent>>(_italianEventDal.GetAll(e => e.dc_Orario == time), Messages.ListingFromDatabaseSuccessful);
         }
 
+        [CacheAspect]
         public IDataResult<ItalianEvent> GetById(int id)
         {
             return new SuccessDataResult<ItalianEvent>(_italianEventDal.Get(e => e.ID == id), Messages.ListingFromDatabaseSuccessful);
         }
 
+        [CacheAspect(5)]
         public IDataResult<List<ItalianEvent>> ReadJson()
         {
             List<ItalianEvent> italianEvent = JsonHelper<ItalianEvent>.LoadJson(url);
             return new SuccessDataResult<List<ItalianEvent>>(italianEvent, Messages.ListingFromSourceSuccessful);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ITurkishEventService.Get")]
         public IResult AddingDataInJson()
         {
             List<ItalianEvent> italianEvent = JsonHelper<ItalianEvent>.LoadJson(url);
@@ -90,13 +104,17 @@ namespace Business.Concrete
             return new SuccessResult(Messages.AddedDataFromSourceSuccessfull);
         }
 
-        public IResult RemovingDataInJson()
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ITurkishEventService.Get")]
+        public IResult RemovingAllData()
         {
-            List<ItalianEvent> italianEvent = JsonHelper<ItalianEvent>.LoadJson(url);
+            List<ItalianEvent> italianEvent = _italianEventDal.GetAll();
             _italianEventDal.RemoveRange(italianEvent);
             return new SuccessResult(Messages.DeletedDataFromSourceSuccessful);
         }
 
+        [SecuredOperation("admin")]
+        [CacheRemoveAspect("ITurkishEventService.Get")]
         public IResult UpdatingDataJson()
         {
             List<ItalianEvent> italianEvent = JsonHelper<ItalianEvent>.LoadJson(url);
