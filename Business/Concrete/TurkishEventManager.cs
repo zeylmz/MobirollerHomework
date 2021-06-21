@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constant;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -19,12 +21,14 @@ namespace Business.Concrete
             _turkishEventDal = turkishEventDal;
         }
 
+        [ValidationAspect(typeof(TurkishEventValidator))]
         public IResult Add(TurkishEvent turkishEvent)
         {
             _turkishEventDal.Add(turkishEvent);
             return new SuccessResult(Messages.AddedDataFromDatabaseSuccessfull);
         }
 
+        [ValidationAspect(typeof(TurkishEventValidator))]
         public IResult Update(TurkishEvent turkishEvent)
         {
             _turkishEventDal.Update(turkishEvent);

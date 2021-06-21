@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constant;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
@@ -23,12 +25,14 @@ namespace Business.Concrete
             _italianEventDal = italianEventDal;
         }
 
+        [ValidationAspect(typeof(ItalianEventValidator))]
         public IResult Add(ItalianEvent italianEvent)
         {
             _italianEventDal.Add(italianEvent);
             return new SuccessResult(Messages.AddedDataFromDatabaseSuccessfull);
         }
 
+        [ValidationAspect(typeof(ItalianEventValidator))]
         public IResult Update(ItalianEvent italianEvent)
         {
             _italianEventDal.Update(italianEvent);
