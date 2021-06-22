@@ -28,12 +28,12 @@ namespace WebAPI.Controllers
         public IActionResult GetEvents()
         {
             IPAddress remoteIpAddress = HttpContext.Connection.RemoteIpAddress.MapToIPv4();
-            
+
             if (remoteIpAddress.ToString() == "::1" || remoteIpAddress.ToString() == "127.0.0.1" || remoteIpAddress.ToString() == "0.0.0.1")
             {
                 return Ok(Messages.LocalIpInformation);
             }
-            
+
             var clientIp = IpDataAPIHelper.RunApi(remoteIpAddress.ToString());
             if (clientIp.country_name == "Italy")
             {

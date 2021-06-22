@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
             _turkishEventService = turkishEventService;
         }
 
-        [HttpPost("add")]        
+        [HttpPost("add")]
         public IActionResult Add(TurkishEvent turkishEvent)
         {
             var result = _turkishEventService.Add(turkishEvent);
@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("delete")]        
+        [HttpPost("delete")]
         public IActionResult Delete(TurkishEvent turkishEvent)
         {
             var result = _turkishEventService.Delete(turkishEvent);
@@ -43,7 +43,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("updated")]        
+        [HttpPost("updated")]
         public IActionResult Update(TurkishEvent turkishEvent)
         {
             var result = _turkishEventService.Update(turkishEvent);
@@ -54,7 +54,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getall")]        
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _turkishEventService.GetAll();
@@ -65,7 +65,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getallbycategory")]        
+        [HttpGet("getallbycategory")]
         public IActionResult GetAllByCategory(string categoryName)
         {
             var result = _turkishEventService.GetAllByCategory(categoryName);
@@ -76,7 +76,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getallbytime")]        
+        [HttpGet("getallbytime")]
         public IActionResult GetAllByTime(string time)
         {
             var result = _turkishEventService.GetAllByTime(time);
@@ -87,7 +87,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]        
+        [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _turkishEventService.GetById(id);
@@ -98,7 +98,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("readjson")]        
+        [HttpGet("readjson")]
         public IActionResult ReadJson()
         {
             var result = _turkishEventService.ReadJson();
@@ -109,7 +109,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("addingdatainjson")]        
+        [HttpGet("addingdatainjson")]
         public IActionResult AddingDataInJson()
         {
             var result = _turkishEventService.AddingDataInJson();
@@ -120,7 +120,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("removingdatainjson")]        
+        [HttpGet("removingdatainjson")]
         public IActionResult RemovingDataInJson()
         {
             var result = _turkishEventService.RemovingAllData();
@@ -131,7 +131,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("updatingdatainjson")]        
+        [HttpGet("updatingdatainjson")]
         public IActionResult UpdatingDataJson()
         {
             var result = _turkishEventService.UpdatingDataJson();

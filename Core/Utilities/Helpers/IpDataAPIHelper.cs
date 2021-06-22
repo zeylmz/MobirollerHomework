@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 namespace Core.Utilities.Helpers
 {
     public class IpDataAPIHelper
-    {        
+    {
         public static IpInfoData RunApi(string ip)
         {
             string apiKey = "0a2bd543cabfa44ec7179df3472a23205495ec5c85901ed6e74f1d87";
             string curl = "https://api.ipdata.co/" + ip + "?api-key=" + apiKey;
             IpInfoData ipInfo = JsonHelper<IpInfoData>.LoadJsonSoloData(curl);
             return ipInfo;
-        }      
-        
+        }
+
     }
 
     public class IpInfoData

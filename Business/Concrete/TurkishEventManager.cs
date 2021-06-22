@@ -10,7 +10,6 @@ using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
 using System.Collections.Generic;
 
 namespace Business.Concrete
@@ -61,6 +60,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
+       
         public IDataResult<List<TurkishEvent>> GetAll()
         {
             return new SuccessDataResult<List<TurkishEvent>>(_turkishEventDal.GetAll(), Messages.ListingFromDatabaseSuccessful);
@@ -85,6 +85,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect(5)]
+        //[PerformanceAspect(4)]
         public IDataResult<List<TurkishEvent>> ReadJson()
         {
             List<TurkishEvent> turkishEvent = JsonHelper<TurkishEvent>.LoadJson(url);

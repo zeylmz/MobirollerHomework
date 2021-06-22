@@ -3,6 +3,7 @@ using Business.BusinessAspects.Autofac;
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
+using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
@@ -89,6 +90,7 @@ namespace Business.Concrete
         }
 
         [CacheAspect(5)]
+        //[PerformanceAspect(4)]
         public IDataResult<List<ItalianEvent>> ReadJson()
         {
             List<ItalianEvent> italianEvent = JsonHelper<ItalianEvent>.LoadJson(url);
