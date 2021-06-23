@@ -42,7 +42,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("updated")]
+        [HttpPost("update")]
         public IActionResult Update(ItalianEvent italianEvent)
         {
             var result = _italianEventService.Update(italianEvent);

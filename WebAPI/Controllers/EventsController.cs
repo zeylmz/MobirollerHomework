@@ -25,8 +25,8 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getevents")]
-        public IActionResult GetEvents()
-        {
+        public IActionResult GetEvents(string ip)
+        {   
             IPAddress remoteIpAddress = HttpContext.Connection.RemoteIpAddress.MapToIPv4();
 
             if (remoteIpAddress.ToString() == "::1" || remoteIpAddress.ToString() == "127.0.0.1" || remoteIpAddress.ToString() == "0.0.0.1")

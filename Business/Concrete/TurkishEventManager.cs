@@ -18,7 +18,7 @@ namespace Business.Concrete
 {
     public class TurkishEventManager : ITurkishEventService
     {
-        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c86e0795-cfbb-42b9-8164-739f72ebf585/3455dde5.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210621%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210621T213852Z&X-Amz-Expires=86400&X-Amz-Signature=e47f08bf51df550fbffe790d39bbdff71a310c37bb4925b4ae67a6f6f095d864&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"3455dde5.json\"";
+        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c86e0795-cfbb-42b9-8164-739f72ebf585/3455dde5.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210623%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210623T170107Z&X-Amz-Expires=86400&X-Amz-Signature=160e2260114d3acf741cbd4855e9c3580ce734a95cc3e91efdc5a115aa3a7757&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"3455dde5.json\"";
         ITurkishEventDal _turkishEventDal;
 
         public TurkishEventManager(ITurkishEventDal turkishEventDal)
@@ -62,7 +62,6 @@ namespace Business.Concrete
         }
 
         [CacheAspect]
-       
         public IDataResult<List<TurkishEvent>> GetAll()
         {
             return new SuccessDataResult<List<TurkishEvent>>(_turkishEventDal.GetAll(), Messages.ListingFromDatabaseSuccessful);
