@@ -40,8 +40,8 @@ namespace Business.Constant
         public static string UserRegistered = "Kullanıcı başarıyla kayıt edildi.";
         public static string AccessTokenCreated = "Access token başarıyla oluşturuldu.";
 
-        public static object LocalIpInformation = "LocalIP üzerinden işlem yapmaktasınız. api/turkishevents/readjson veya api/italianevents/readjson uzantılarını kullanarak verileri alabilirsin";
-        internal static string DataCountExceeded = "Maksimum veri sayısını aştınız.";
-        internal static string AuthorizationDenied = "Yetkisiz İşlem.";
+        public static string LocalIpInformation = "LocalIP üzerinden işlem yapmaktasınız. api/turkishevents/readjson veya api/italianevents/readjson uzantılarını kullanarak verileri alabilirsin";
+        public static string DataCountExceeded = "Maksimum veri sayısını aştınız.";
+        public static string AuthorizationDenied = "Yetkisiz İşlem.";
     }
 }
