@@ -25,17 +25,18 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("getevents")]
-        public IActionResult GetEvents(string ip)
-        {   
+        public IActionResult GetEvents()
+        {
             IPAddress remoteIpAddress = HttpContext.Connection.RemoteIpAddress.MapToIPv4();
+            string ip = remoteIpAddress.ToString();
 
-            if (remoteIpAddress.ToString() == "::1" || remoteIpAddress.ToString() == "127.0.0.1" || remoteIpAddress.ToString() == "0.0.0.1")
+            if (ip == "::1" || ip == "127.0.0.1" || ip == "0.0.0.1")
             {
-                return Ok(Messages.LocalIpInformation);
+                return BadRequest(Messages.LocalIpInformation);
             }
 
-            var clientIp = IpDataAPIHelper.RunApi(remoteIpAddress.ToString());
-            if (clientIp.country_name == "Italy")
+            var localization = FindIpLocalization.RequestLocalization(ip);
+            if (localization == "Italy")
             {
                 var italianResult = _italianEventService.ReadJson();
                 if (italianResult.Success)
@@ -45,12 +46,12 @@ namespace WebAPI.Controllers
                 return BadRequest(italianResult);
             }
 
-            var result = _turkishEventService.ReadJson();
-            if (result.Success)
+            var turkishResult = _turkishEventService.ReadJson();
+            if (turkishResult.Success)
             {
-                return Ok(result);
+                return Ok(turkishResult);
             }
-            return BadRequest(result);
+            return BadRequest(turkishResult);
         }
     }
 }
