@@ -3,9 +3,7 @@ using Business.BusinessAspects.Autofac;
 using Business.Constant;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
-using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
-using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers;
 using Core.Utilities.Results.Abstract;
@@ -18,7 +16,7 @@ namespace Business.Concrete
 {
     public class TurkishEventManager : ITurkishEventService
     {
-        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c86e0795-cfbb-42b9-8164-739f72ebf585/3455dde5.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210625%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210625T182819Z&X-Amz-Expires=86400&X-Amz-Signature=bbe235e5eae59e285ecb88dbd6a517af7761dcaa81bace6f6603f2b9a784405b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"3455dde5.json\"";
+        string url = "https://s3.us-west-2.amazonaws.com/secure.notion-static.com/c86e0795-cfbb-42b9-8164-739f72ebf585/3455dde5.json?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210626%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210626T090435Z&X-Amz-Expires=86400&X-Amz-Signature=c5eb176b51e53008cd9dfd9e305d39dc819d84c85cf9441815c8933766a5bca8&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D\"3455dde5.json\"";
         ITurkishEventDal _turkishEventDal;
 
         public TurkishEventManager(ITurkishEventDal turkishEventDal)

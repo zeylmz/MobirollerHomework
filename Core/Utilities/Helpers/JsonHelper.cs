@@ -16,8 +16,8 @@ namespace Core.Utilities.Helpers
             using (var webClient = new WebClient())
             {
                 string jsonData = webClient.DownloadString(url);
-                List<TEntity> turkishEvents = JsonConvert.DeserializeObject<List<TEntity>>(jsonData);
-                return turkishEvents;
+                List<TEntity> events = JsonConvert.DeserializeObject<List<TEntity>>(jsonData);
+                return events;
             }
         }
 
@@ -26,9 +26,9 @@ namespace Core.Utilities.Helpers
             using (var webClient = new WebClient())
             {
                 string jsonData = webClient.DownloadString(url);
-                TEntity turkishEvents = JsonConvert.DeserializeObject<TEntity>(jsonData);
-                return turkishEvents;
+                TEntity events = JsonConvert.DeserializeObject<TEntity>(jsonData);
+                return events;
             }
-        }
+        } 
     }
 }
