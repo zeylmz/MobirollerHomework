@@ -69,7 +69,7 @@ namespace WebAPI
             app.ConfigureCustomExceptionMiddleware();
 
             app.UseCors(builder => builder.WithOrigins("").AllowAnyHeader());
-
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

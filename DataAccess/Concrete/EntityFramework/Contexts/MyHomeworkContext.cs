@@ -8,7 +8,8 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-ASD8F4L;Database=MyHomework;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=mssql_server;Database=MyHomework;User=sa;Password=P4ssw0rd+;Trusted_Connection=true");
+            //optionsBuilder.UseSqlServer(@"Server=DESKTOP-ASD8F4L;Database=MyHomework;Trusted_Connection=true");
         }
         public DbSet<TurkishEvent> TurkishEvents { get; set; }
         public DbSet<ItalianEvent> ItalianEvents { get; set; }
