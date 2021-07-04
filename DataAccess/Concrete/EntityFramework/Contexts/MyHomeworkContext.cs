@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     public class MyHomeworkContext : DbContext
-    {
+    {        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(@"Server=mssql_server;Database=MyHomework;User=sa;Password=P4ssw0rd+;Trusted_Connection=true");
+        {            
+            optionsBuilder.UseSqlServer(@"Server=mssql_server,1433;Initial Catalog=MyHomework;User ID=SA;Password=P4ssw0rd+");
             //optionsBuilder.UseSqlServer(@"Server=DESKTOP-ASD8F4L;Database=MyHomework;Trusted_Connection=true");
         }
         public DbSet<TurkishEvent> TurkishEvents { get; set; }
